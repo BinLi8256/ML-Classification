@@ -1,7 +1,12 @@
 ---
 title: "ML-Classification-Imbalance"
 author: "Bin Li"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    number_section: true
+    theme: united
+
 ---
 
 ```{r setup, include=FALSE}
@@ -10,7 +15,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Data Preparation
 
-```{r}
+```{r, message=FALSE}
+library(tidyverse)
 #Combine two datasets
 model.data.train = read.csv("/Volumes/LI/work_sample/model_data_train.csv")
 count.both = read.csv("/Volumes/LI/work_sample/count_both.csv")
@@ -386,7 +392,7 @@ data.test = data.test %>%
 
 ```
 <br>
-(2) **Prediction**: Random forest model, **rf.opt**, is used to predict y for the test set. The classification decision is based on the optimal threshold, **0.3795**, obtained from ROC. Finally, the prediction result with filename is saved as a csv file, **test_prediction**.  
+(2) **Prediction**: Random forest model, **rf.opt**, is used to predict y for the test set. The classification decision is based on the optimal threshold obtained from ROC. Finally, the prediction result with filename is saved as a csv file, **test_prediction**.  
 <br>
 ```{r}
 # Predict 
